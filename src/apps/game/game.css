@@ -1,0 +1,116 @@
+
+
+ul {
+  margin-bottom: 5px;
+  display: grid;
+  border-radius: 5px;
+  overflow: hidden;
+} 
+
+.game {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.game-info {
+  width: 300px;
+}
+
+.game-status {
+  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+  border: 1px solid grey;
+  border-radius: 15px;
+  height: 80px;
+  font-size: 2rem;
+}
+
+.history {
+  display: grid;
+  align-content: start;
+  border: 1px solid grey;
+  height: 200px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  border-radius: 15px;
+}
+
+.history li {
+  width: 100%;
+  justify-self: stretch;
+  border-bottom: 1px solid grey;
+}
+
+.history li:last-child {
+  border-bottom: none;
+}
+
+.history button {
+  background-color: rgb(65, 65, 65);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 3px 0;
+  width: 100%;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+}
+
+li button:hover {
+  background-color: rgb(216, 177, 94);
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+
+.square {
+  background: rgb(145, 145, 145);
+  border: 1px solid #999;
+
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 34px;
+  height: 100px;
+
+  padding: 0;
+  text-align: center;
+  width: 100px;
+  cursor: pointer;
+}
+
+.square:nth-child(1) { border-radius: 15px 0 0 0 }
+.square:nth-child(3) { border-radius: 0 15px 0 0 }
+.square:nth-child(7) { border-radius: 0 0 0 15px }
+.square:nth-child(9) { border-radius: 0 0 15px 0 }
+
+.box-x {
+  color: #659ce4;
+  background-color: rgb(65, 65, 65);
+}
+
+.box-o {
+  color: #b464d4;
+  background-color: rgb(65, 65, 65);
+}
+
+.box-winner {
+  color: white;
+  background-color: rgb(216, 177, 94);
+  font-size: 5rem;
+}
+
+.square:hover {
+  border: 5px solid rgb(216, 177, 94);
+}
+
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}

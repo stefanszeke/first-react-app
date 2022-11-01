@@ -1,0 +1,160 @@
+.calculator-app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.calculator {
+  width: 300px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.display {
+  background-color: rgb(48, 48, 48);
+  color: rgb(224, 199, 117);
+  width: 300px;
+  padding: 5px 15px;
+  display: grid;
+  height: 30px;
+  grid-template-columns: 1fr 1fr;
+  justify-items: space-between;
+}
+
+.input-display {
+  background-color: grey;
+  height: 20px;
+  width: 300px;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: space-between;
+  align-items: center;
+}
+
+.result-display {
+  color: rgb(175, 175, 175);
+}
+
+.backButton {
+  text-align: right;
+}
+
+.backButton button {
+  background: none;
+  border: none;
+  color: rgb(248, 196, 117);
+  cursor: pointer;
+
+}
+
+.backButton button:hover {
+  color: rgb(73, 71, 71);
+  transform: scale(1.35);
+}
+
+
+.display-operators {
+  text-align: right;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 400px;
+  height: 150px;
+}
+
+.numKeys {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  width: 250px;
+}
+
+.operationKeys {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.key {
+  background-color: rgb(37, 37, 37);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.key:hover {
+  background-color: rgb(211, 131, 27);
+}
+
+.operationKey {
+  width: 50px;
+  border-bottom: 1px dotted white;
+  border-left: 1px dotted white;;
+}
+
+.operationKey:last-child {
+  border-bottom: none;
+}
+
+.input-history {
+  position: relative;
+  width: 300px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  height: 200px;
+
+}
+
+.history-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: start;
+
+  height: 200px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.input-history li {
+  list-style: none;
+  padding: 0 15px;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+}
+
+.input-history li:last-child {
+  border-bottom: none;
+}
+
+
+.input-history li:hover {
+  background-color: rgb(48, 48, 48);
+  color: rgb(224, 199, 117);
+  padding: 0 17px;
+}
+
+.clear-history {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  border: 5px solid white;
+  box-shadow: 0px 0px 5px grey;
+
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.clear-history:hover {
+  color: rgb(211, 131, 27);
+  transform: scale(1.2);
+}
