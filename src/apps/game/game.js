@@ -98,6 +98,7 @@ export default  class Game extends React.Component {
     const winner = calculateWinner(current.squares);
     let status = "";
     if (winner) {
+      status = 'Winner: ' + (this.state.xIsNext ? 'O' : 'X');
     }
     else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
