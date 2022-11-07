@@ -12,8 +12,8 @@ export default  class Game extends React.Component {
         { squares: Array(9).fill(null), classes: Array(9).fill(null) },
       ],
       xIsNext: true,
-      end: false,
       stepNumber: 0,
+      status: 'Next player: X'
     };
   }
 
@@ -21,18 +21,20 @@ export default  class Game extends React.Component {
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
-    let status = this.setStatus();
 
-    const move = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move + ' next player: ' + (move % 2 === 0 ? 'X' : 'O') :
-        'Go to game start';
+    let status = this.state.status;
+
+    let move = history.map((step, move) => {
+      const winner = calculateWinner(history[move].squares);
+      let desc = ""
+
+      if(move === 0) desc = 'Go to game start';
+      else if (move > 0 && !winner) desc = 'Go to move #' + move + ' next player: ' + (move % 2 === 0 ? 'X' : 'O');
+      else desc = 'winner: ' + (move % 2 === 0 ? 'O' : 'X');
       return (
-
           <li key={move}>
             <button  onClick={() => this.jumpTo(move)}>{desc}</button>
           </li>
-
       );
     });
 
@@ -56,8 +58,8 @@ export default  class Game extends React.Component {
     this.setState({      
       stepNumber: step,      
       xIsNext: (step % 2) === 0,    
-    });
-    this.setStatus()
+    }, () => step===0? this.setState({status: 'Next player: X'}) : this.setStatus(step));
+
   }
   setValue(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
@@ -78,7 +80,7 @@ export default  class Game extends React.Component {
         ]),
         xIsNext: !this.state.xIsNext,
         stepNumber: history.length,
-       });
+       }, () => this.setStatus());
 
        const winner = calculateWinner(squaresCopy);
        if(winner) {
@@ -86,20 +88,21 @@ export default  class Game extends React.Component {
           classesCopy[index] = classesCopy[index] + ' box-winner';
         }
       }
+
     }
   }
-  setStatus() {
+  setStatus(step = undefined) {
     const history = this.state.history;
-    const current = history[history.length - 1];
+
+    const current = history[step] || history[history.length - 1];
     const winner = calculateWinner(current.squares);
-    let status;
+    let status = "";
     if (winner) {
-      status = 'Winner: ' + current.squares[winner[0]];
     }
     else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
-    return status;
+    this.setState({ status: status });
   }
 }
 

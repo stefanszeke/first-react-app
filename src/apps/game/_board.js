@@ -19,11 +19,11 @@ export default class Board extends React.Component {
 
   render() {  // render method is required, it is the only method required in a class component
     return (
-      <div>
+
         <div className="board">
           {this.numbers.map( (i) => this.renderSquare(i) )}
         </div>
-      </div>
+
     );
   }
 }

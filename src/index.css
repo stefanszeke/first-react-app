@@ -7,7 +7,12 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px auto;
-  width: 620px;
+
+}
+
+.main-wrapper {
+  display: grid;
+  justify-content: center;
 }
 
 .main-wrapper h2 {
@@ -16,3 +21,7 @@ body {
   margin-bottom: 10px;
   margin-top: 50px;
 }
+
+
+
+  

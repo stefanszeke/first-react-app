@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
+  gap: 20px;
 }
 
 .calculator {
@@ -157,4 +158,12 @@
 .clear-history:hover {
   color: rgb(211, 131, 27);
   transform: scale(1.2);
+}
+
+@media screen and (max-width: 620px) {
+  .calculator-app {
+
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }

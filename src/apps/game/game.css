@@ -1,5 +1,4 @@
 
-
 ul {
   margin-bottom: 5px;
   display: grid;
@@ -11,6 +10,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
+  gap: 20px;
 }
 
 .game-info {
@@ -58,7 +58,7 @@ ul {
 
 .board {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 li button:hover {
@@ -78,10 +78,10 @@ li button:hover {
   font-weight: bold;
   line-height: 34px;
   height: 100px;
+  width: 100px;
 
   padding: 0;
   text-align: center;
-  width: 100px;
   cursor: pointer;
 }
 
@@ -114,3 +114,18 @@ li button:hover {
 .kbd-navigation .square:focus {
   background: #ddd;
 }
+
+@media screen and (max-width: 620px) {
+  .game {
+    grid-template-columns: 1fr;
+  }
+
+
+
+  .game-status {
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+}
+  
